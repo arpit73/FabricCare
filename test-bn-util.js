@@ -1,14 +1,5 @@
 'use strict';
-/**
- * Part of a course on Hyperledger Fabric: 
- * http://ACloudFan.com
- * 
- * Composer 0.19.0
- * 
- * This is for testing the bn-connection-util.js
- * 
- * Shows how to use the bn-connection-util in your 
- */
+
 const bnUtil = require('./bn-connection-util');
 
 // This creates the business network connection object
@@ -19,7 +10,7 @@ bnUtil.connect(main);
 // Callback function passed to the BN Connection utility
 // Error has value if there was an error in connect()
 function main(error){
-    // 1. Check for the connection error
+    // Check for the connection error
     if(error){
         console.log(error);
         process.exit(1);
@@ -27,7 +18,7 @@ function main(error){
 
     console.log("1. Successfully Connected !!!");
 
-    // 2. Lets ping
+    // ping for any errors
     bnUtil.ping((response, error)=>{
         if(error){
             console.log(error);
@@ -36,7 +27,7 @@ function main(error){
             console.log(response);
         }
 
-        // 3. Disconnect
+        // Disconnect
         bnUtil.disconnect();
 
         console.log("3. Disconnected");
