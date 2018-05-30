@@ -39,50 +39,41 @@ app.post("/addFlight",function(req,res){
     console.log(req.body.origin);
     'use strict';
 
-    // Constant values - change as per your needs
+ // Constant values - change as per your needs
  const namespace = "org.fabriccare.organ";
  const transactionType = "donateOrgan";
 
-// 1. Connect to airlinev7
+// Connecting to main card
 const bnUtil = require('./bn-connection-util');
 bnUtil.connect(main);
 
 function main(error){
     
-    // Check for error
+    // Checking for error
     if(error){
         console.log(error);
         process.exit(1);
     }
 
-    // 2. Get the Business Network Definition
+    // Getting the Business Network Definition
     let bnDef =  bnUtil.connection.getBusinessNetwork();
     console.log("2. Received Definition from Runtime: ",
                    bnDef.getName(),"  ",bnDef.getVersion());
 
-    // 3. Get the factory
+    // Getting the factory
     let factory = bnDef.getFactory();
-    
-    // 4. Lets create a new Resource of type = Transaction
-    //    Here is the sample data
-    // {
-    //     "$class": "org.acme.airline.flight.CreateFlight",
-    //     "flightNumber": "AE101-06-06-2019",
-    //     "origin": "MSP",
-    //     "destination": "SEA",
-    //     "schedule": "2019-06-06T18:49:58.273Z"
-    // }
-
-    // 4. Create an instance of transaction
+   
+    // Creating an instance of transaction
     let options = {
         generate: false,
         includeOptionalFields: false
     }
+    // Trying with demo id
     let organId = "AE105-05-06-2019";
     let transaction = factory.newTransaction(namespace,transactionType,organId,options);
 
     
-    // 5. Set up the properties of the transaction object
+    // Set up the properties of the transaction object
    
     transaction.setPropertyValue('organId',req.body.organId);
     transaction.setPropertyValue('type',parseInt(req.body.gridRadios));
@@ -106,7 +97,7 @@ function main(error){
     transaction.setPropertyValue('kinPhoneNo' , req.body.kinPhoneNo);
 
 
-    // 6. Submit the transaction
+    // Submitting the transaction
     return bnUtil.connection.submitTransaction(transaction).then(()=>{
         console.log("6. Transaction Submitted/Processed Successfully!!")
         switch(parseInt(req.body.gridRadios)){
@@ -180,6 +171,7 @@ function main(error){
     res.redirect("/");
 })
 
+// app localhost port number
 app.listen("4200",function(){
     console.log("Fabric Care started on port 4200");
 })
