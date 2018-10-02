@@ -5,7 +5,20 @@
  * Total privacy for the donor.
  * Tracking the organ is possible.
  * No black marketing of the organs to the rich.
- # Screens Of Fabric Care
+
+# Usage
+A blockchain enabled product for tracking organs all over the country and eliminate the organ black market in India.
+
+Organ donation is a very important for saving someone’s life. It is estimated that 42% of transplanted organs come from illegal trafficking in organs. In India organs can come at a cost of some poor person having to sell their kidney to make some money or have it operated out of them without consent. The black market for organs is a big issue that can be difficult to track since these organs may make to legitimate channels. 
+
+By using our blockchain based tracking system we can eliminate the possibility of illegitimately obtained organs making it into the hospitals.
+
+Usage: In case of a death, if the person is an organ donor we log all the relevant medical details about the patient and the organs obtained, these are then logged into our system which is decentralised and thus the log is written into to blockchain based ledger that cannot be modified later.
+When an entry is made into ledger it is observed by everyone using the system thus alerting everyone of a new organ. When a hospital receives that organ they can track its history and thus be sure that it was legitimately obtained. They will then log all the details about how they came to get the organ and what the new location is, then finally update it when it is transplanted into another person. This creates a immutable trail that any hospital can use to determine the history of an organ.
+
+If an organ goes missing from a hospital it will not be logged be through legitimate means and thus if a hospital observes any discrepancy in the data they will simply not accept it and alert the authorities about the crime.
+
+ # Screencaps Of Fabric Care
  ## 1. Home page
  ![Alt text](Screens/homeScreen.png?raw=true)
  ## 2. Organs Form
